@@ -22,31 +22,31 @@ export default function Navbar({ currentPath }) {
       <div className="container">
         <ul className="nav-links">
           <li>
-            <div className={`nav-link ${activeTab === '/cadastro_eventos/novo' ? 'active' : ''}`} onClick={() => window.location.href = '/cadastro_eventos/novo'}>
+            <div className={`nav-link ${activeTab === '/cadastro_eventos' ? 'active' : ''}`} onClick={() => window.location.href = '/cadastro_eventos'}>
               <AiOutlineCalendar className="icon" />
               <span>Cadastro de Eventos</span>
             </div>
           </li>
           <li>
-            <div className={`nav-link ${activeTab === '/cadastro_categorias/novo' ? 'active' : ''}`} onClick={() => window.location.href = '/cadastro_categorias/novo'}>
+            <div className={`nav-link ${activeTab === '/cadastro_categorias' ? 'active' : ''}`} onClick={() => window.location.href = '/cadastro_categorias'}>
               <BsCardChecklist className="icon" />
               <span>Categorias de Ingressos</span>
             </div>
           </li>
           <li>
-            <div className={`nav-link ${activeTab === '/cadastro_lotes/novo' ? 'active' : ''}`} onClick={() => window.location.href = '/cadastro_lotes/novo'}>
+            <div className={`nav-link ${activeTab === '/cadastro_lotes' ? 'active' : ''}`} onClick={() => window.location.href = '/cadastro_lotes'}>
               <IoTicketOutline className="icon" />
               <span>Lotes de Ingressos</span>
             </div>
           </li>
           <li>
-            <div className={`nav-link ${activeTab === '/cadastro_ingressos/novo' ? 'active' : ''}`} onClick={() => window.location.href = '/cadastro_ingressos/novo'}>
+            <div className={`nav-link ${activeTab === '/cadastro_ingressos' ? 'active' : ''}`} onClick={() => window.location.href = '/cadastro_ingressos'}>
               <IoTicketOutline className="icon" />
               <span>Cadastro de Ingressos</span>
             </div>
           </li>
           <li>
-            <div className={`nav-link ${activeTab === '/cadastro_clientes/novo' ? 'active' : ''}`} onClick={() => window.location.href = '/cadastro_clientes/novo'}>
+            <div className={`nav-link ${activeTab === '/cadastro_clientes' ? 'active' : ''}`} onClick={() => window.location.href = '/cadastro_clientes'}>
               <FaUsers className="icon" />
               <span>Clientes</span>
             </div>
