@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// cadastro de eventos
+model Evento {
+  id            String    @id @default(uuid())
+  nome          String
+  data          DateTime
+  local         String
+  descricao     String
+  ingressos     Ingresso[]
+
+  @@map("eventos")
+}
+
+//  cadastro de categoria de ingressos
+model CategoriaIngresso {
+  id            String    @id @default(uuid())
+  nome          String    @unique
+  descricao     String
+  ingressos     Ingresso[]
+
+  @@map("categorias_ingresso")
+}
+
+// cadastro de lotes de ingressos
+model LoteIngresso {
+  id            String    @id @default(uuid())
+  nome          String
+  descricao     String
+  quantidade    Int
+  valor         Float
+  ingressos     Ingresso[]
+
+  @@map("lotes_ingresso")
+}
+
+// cadastro de ingressos
+model Ingresso {
+  id            String           @id @default(uuid())
+  quantidade    Int
+  valor         Float
+  evento        Evento           @relation(fields: [eventoId], references: [id])
+  eventoId      String
+  categoria     CategoriaIngresso @relation(fields: [categoriaId], references: [id])
+  categoriaId   String
+  lote          LoteIngresso      @relation(fields: [loteId], references: [id])
+  loteId        String
+  cliente       Cliente?          @relation(fields: [clienteId], references: [id])
+  clienteId     String?
+
+  @@map("ingressos")
+}
+
+//  cadastro de clientes
+model Cliente {
+  id            String    @id @default(uuid())
+  nome          String
+  email         String    @unique
+  ingressos     Ingresso[]
+
+  @@map("clientes")
+}
